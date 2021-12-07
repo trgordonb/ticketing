@@ -3,10 +3,10 @@ import request from 'supertest';
 import { OrderStatus } from '@ensembletech/common';
 import { app } from '../../app';
 import { Order } from '../../models/order';
-import { stripe } from '../../stripe';
-import { Payment } from '../../models/payment';
+//import { stripe } from '../../stripe';
+//import { Payment } from '../../models/payment';
 
-//jest.mock('../../stripe');
+jest.mock('../../stripe');
 
 it('returns a 404 when purchasing an order that does not exist', async () => {
   await request(app)
@@ -84,7 +84,7 @@ it('returns a 400 when purchasing a cancelled order', async () => {
   expect(chargeOptions.source).toEqual('tok_visa');
   expect(chargeOptions.amount).toEqual(20 * 100);
   expect(chargeOptions.currency).toEqual('usd');
-});*/
+});
 
 it('returns a 201 with valid inputs', async () => {
   const userId = new mongoose.Types.ObjectId().toHexString();
@@ -120,4 +120,4 @@ it('returns a 201 with valid inputs', async () => {
     stripeId: stripeCharge!.id,
   });
   expect(payment).not.toBeNull();
-});
+});*/

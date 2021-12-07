@@ -9,9 +9,7 @@ export class OrderCancelledListener extends Listener<OrderCancelledEvent> {
   queueGroupName = queueGroupName;
 
   async onMessage(data: OrderCancelledEvent['data'], msg: Message) {
-    const ticketId = Buffer.from(data.ticket.id, 'base64').toString('hex');
-    console.log('OrderCancelled: ', ticketId);
-    const ticket = await Ticket.findById(ticketId);
+    const ticket = await Ticket.findById(data.ticket.id);
 
     if (!ticket) {
       throw new Error('Ticket not found');

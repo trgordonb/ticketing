@@ -16,7 +16,7 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - run: cd orders && docker build -t cygnetops/orders .
+      - run: cd orders && docker build -t linkaiq2019/orders .
       - run: docker push linkaiq2019/orders
       - uses: digitalocean/action-doctl@v2
         with:

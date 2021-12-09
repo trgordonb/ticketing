@@ -16,11 +16,11 @@ spec:
         - name: auth-mongo
           image: mongo
           volumeMounts:
-            - name: mongodb-storage
+            - name: mongodb-storage-auth
               mountPath: /data/db
               subPath: auth
       volumes:
-        - name: mongodb-storage
+        - name: mongodb-storage-auth
           persistentVolumeClaim:
             claimName: mongodb-pv-claim
 ---

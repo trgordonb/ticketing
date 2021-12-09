@@ -16,11 +16,11 @@ spec:
         - name: payments-mongo
           image: mongo
           volumeMounts:
-            - name: mongodb-storage
+            - name: mongodb-storage-payments
               mountPath: /data/db
               subPath: payments
       volumes:
-        - name: mongodb-storage
+        - name: mongodb-storage-payments
           persistentVolumeClaim:
             claimName: mongodb-pv-claim
 ---

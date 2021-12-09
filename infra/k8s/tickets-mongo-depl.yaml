@@ -16,11 +16,11 @@ spec:
         - name: tickets-mongo
           image: mongo
           volumeMounts:
-            - name: mongodb-storage
+            - name: mongodb-storage-tickets
               mountPath: /data/db
               subPath: tickets
       volumes:
-        - name: mongodb-storage
+        - name: mongodb-storage-tickets
           persistentVolumeClaim:
             claimName: mongodb-pv-claim
 ---

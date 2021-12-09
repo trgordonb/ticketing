@@ -18,6 +18,7 @@ spec:
           volumeMounts:
             - name: mongodb-storage
               mountPath: /data/db
+              subPath: payments
       volumes:
         - name: mongodb-storage
           persistentVolumeClaim:

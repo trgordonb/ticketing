@@ -8,6 +8,7 @@ declare global {
   var signin: () => string;
 }
 
+jest.setTimeout(30000);
 jest.mock('../nats-wrapper');
 
 let mongo: any;

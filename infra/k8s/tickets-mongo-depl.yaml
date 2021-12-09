@@ -18,6 +18,7 @@ spec:
           volumeMounts:
             - name: mongodb-storage
               mountPath: /data/db
+              subPath: tickets
       volumes:
         - name: mongodb-storage
           persistentVolumeClaim:

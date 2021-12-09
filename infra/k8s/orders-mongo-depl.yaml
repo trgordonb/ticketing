@@ -16,14 +16,14 @@ spec:
       containers:
         - name: orders-mongo
           image: mongo
-      #    volumeMounts:
-      #      - name: mongodb-storage-orders
-      #        mountPath: /data/db
-      #        subPath: order
-      #volumes:
-      #  - name: mongodb-storage-orders
-      #    persistentVolumeClaim:
-      #      claimName: mongodb-pv-claim
+          volumeMounts:
+            - name: mongodb-storage-orders
+              mountPath: /data/db
+              subPath: orders
+      volumes:
+        - name: mongodb-storage-orders
+          persistentVolumeClaim:
+            claimName: mongodb-pv-claim
 ---
 apiVersion: v1
 kind: Service

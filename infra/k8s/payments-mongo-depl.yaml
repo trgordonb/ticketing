@@ -22,7 +22,7 @@ spec:
       volumes:
         - name: mongodb-storage-payments
           persistentVolumeClaim:
-            claimName: mongodb-pv-claim
+            claimName: mongodb-pv-claim-payments
 ---
 apiVersion: v1
 kind: Service
@@ -36,3 +36,14 @@ spec:
       protocol: TCP
       port: 27017
       targetPort: 27017
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-pv-claim-payments
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
